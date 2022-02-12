@@ -14,6 +14,7 @@
   }
 
   .grass-board {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
     width: 3600px;
@@ -26,14 +27,16 @@
     object-fit: cover;
   }
 
-  .character-wrapper {
+  .character {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100px;
     height: 100px;
     overflow: hidden;
   }
 
-  .character {
+  .character>img {
     position: relative;
     top: -50px;
     left: -50px;
@@ -43,8 +46,8 @@
 
 <div class="main-board">
   <div class="grass-board">
-    <div class="character-wrapper">
-      <img class="character" src="assets/original/Characters/Basic Charakter Spritesheet.png"/>
+    <div class="character">
+      <img src="assets/original/Characters/Basic Charakter Spritesheet.png" />
     </div>
   </div>
 </div>
@@ -62,6 +65,29 @@
     // 풀밭에 추가
     grassBoard.appendChild(grassImg);
   }
+
+  // 캐릭터 DOM객체 가져오기
+  var character = document.getElementsByClassName('character')[0];
+  // 캐릭터 기본 위치 세팅
+  character.setAttribute('style', 'top: 0px; left: 0px;');
+
+  // 캐릭터 움직이는 핸들러 함수
+  document.addEventListener('keydown', function (e) {
+    switch (e.key) {
+      case 'ArrowLeft':
+        character.style.left = parseInt(character.style.left) - 100 + 'px';
+        break;
+      case 'ArrowUp':
+        character.style.top = parseInt(character.style.top) - 100 + 'px';
+        break;
+      case 'ArrowRight':
+        character.style.left = parseInt(character.style.left) + 100 + 'px';
+        break;
+      case 'ArrowDown':
+        character.style.top = parseInt(character.style.top) + 100 + 'px';
+        break;
+    }
+  });
 </script>
 
 </html>
