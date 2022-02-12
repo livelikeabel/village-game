@@ -16,9 +16,8 @@
   .grass-board {
     display: flex;
     flex-wrap: wrap;
-    width: 12000px;
-    height: 8000px;
-    background-color: aquamarine;
+    width: 3600px;
+    height: 2400px;
   }
 
   .grass-1 {
@@ -26,10 +25,27 @@
     height: 100px;
     object-fit: cover;
   }
+
+  .character-wrapper {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+  }
+
+  .character {
+    position: relative;
+    top: -50px;
+    left: -50px;
+    width: 800px;
+  }
 </style>
 
 <div class="main-board">
   <div class="grass-board">
+    <div class="character-wrapper">
+      <img class="character" src="assets/original/Characters/Basic Charakter Spritesheet.png"/>
+    </div>
   </div>
 </div>
 
@@ -37,7 +53,7 @@
   // 풀밭 DOM객체 가져오기
   var grassBoard = document.getElementsByClassName('grass-board')[0];
 
-  for (var i = 0; i < 10080; i++) {
+  for (var i = 0; i < 1000; i++) {
     // 풀밭 이미지 1개 생성
     var grassImg = document.createElement('img');
     grassImg.setAttribute('src', 'assets/tunning/grass-1.png');
