@@ -10,12 +10,15 @@
   .main-board {
     width: 1200px;
     height: 800px;
-    overflow: hidden;
+    overflow: scroll;
   }
 
   .grass-board {
     display: flex;
     flex-wrap: wrap;
+    width: 12000px;
+    height: 8000px;
+    background-color: aquamarine;
   }
 
   .grass-1 {
@@ -34,7 +37,7 @@
   // 풀밭 DOM객체 가져오기
   var grassBoard = document.getElementsByClassName('grass-board')[0];
 
-  for (var i = 0; i < 200; i++) {
+  for (var i = 0; i < 10080; i++) {
     // 풀밭 이미지 1개 생성
     var grassImg = document.createElement('img');
     grassImg.setAttribute('src', 'assets/tunning/grass-1.png');
